@@ -4,10 +4,10 @@ const User = require('./models/User');
 const Pet = require('./models/Pet');
 
 const newUser = {
-  name: 'Henrique Mendes',
-  email: 'henrique@henrique.com.br',
+  name: 'He',
+  email: 'henrique@henriqueee.com.br',
   password: '123456',
-  birthDate: new Date(1988, 4, 20),
+  birthDate: new Date(4, 20, 1988),
 };
 
 mongoose.connect('mongodb://localhost/pet-shop-database').then(() => {
@@ -16,6 +16,8 @@ mongoose.connect('mongodb://localhost/pet-shop-database').then(() => {
   Pet.find().populate('owner').then(pets => {
     console.log(pets)
   })
+
+  User.create(newUser).then(() => console.log('Usuário criado!!!')).catch(e => console.log(e));
 
   // User.findOne({ email: 'henrique@henrique.com.br' }).then(user => {
   //   console.log(user);
