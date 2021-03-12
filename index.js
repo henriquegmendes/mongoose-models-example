@@ -7,7 +7,7 @@ const newUser = {
   name: 'Henrique Mendes',
   email: 'henrique@henrique.com.br',
   password: '123456',
-  birthDate: new Date(4, 20, 1988),
+  birthDate: new Date(1988, 4, 20),
 };
 
 mongoose.connect('mongodb://localhost/pet-shop-database').then(() => {
@@ -17,23 +17,23 @@ mongoose.connect('mongodb://localhost/pet-shop-database').then(() => {
     console.log(pets)
   })
 
-  User.findOne({ email: 'henrique@henrique.com.br' }).then(user => {
-    console.log(user);
+  // User.findOne({ email: 'henrique@henrique.com.br' }).then(user => {
+  //   console.log(user);
 
-    const newPet = {
-      name: 'Kika',
-      species: 'dog',
-      owner: user._id,
-    }
+  //   const newPet = {
+  //     name: 'Kika',
+  //     species: 'dog',
+  //     owner: user._id,
+  //   }
 
-    Pet.create(newPet).then(() => {
-      console.log('Novo pet criado!!!')
-    }).catch(e => {
-      console.log('Erro ao criar Pet ===> ', e);
-    });
-  }).catch(err => {
-    console.log('Erro ao Criar Usuario ===> ', err);
-  });
+  //   Pet.create(newPet).then(() => {
+  //     console.log('Novo pet criado!!!')
+  //   }).catch(e => {
+  //     console.log('Erro ao criar Pet ===> ', e);
+  //   });
+  // }).catch(err => {
+  //   console.log('Erro ao Criar Usuario ===> ', err);
+  // });
 
 }).catch(error => {
   console.log(error);
